@@ -1,0 +1,16 @@
+site_name: PagesManager
+site_url: https://reques6e.github.io/PagesManager
+site_author: Astamur Ladariya
+
+# Repository
+repo_name: PagesManager
+repo_url: https://github.com/reques6e/PagesManager
+edit_uri: edit/master/docs
+docs_dir: docs
+
+plugins:
+    - awesome-pages
+    - search
+
+theme:
+  name: 'material'
