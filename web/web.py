@@ -5,6 +5,7 @@ import os
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from starlette.middleware.sessions import SessionMiddleware
 
 from pages.exceptions import FastAPIExceptionHandlers
 from pages.login.router import router as page_login
@@ -28,6 +29,7 @@ api = FastAPI(
     description='TestLOL'
 )
 
+api.add_middleware(SessionMiddleware, secret_key='your-secret-key')
 api.mount("/static", StaticFiles(directory="web/ui/static"), name="static")
 
 FastAPIExceptionHandlers(api)
