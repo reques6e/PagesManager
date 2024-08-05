@@ -40,7 +40,7 @@ compile_scss()
 
 if __name__ == "__main__":
     uvicorn.run(
-        app='web:api', 
+        app='run:api', 
         host=Config.RUN_HOST, 
         port=Config.RUN_PORT,
         reload=Config.RUN_RELOAD

@@ -1,11 +1,12 @@
-from models.session import GetSession
 from jwts import JWT
+from config import Config
+from models.session import GetSession
 
 class SessionStorage:
     def __init__(
         self,
         name: str,
-        secret: str,
+        secret: str = Config.JWT_SECRET
     ) -> None:
         self.name = name
         self.secret = secret
@@ -43,23 +44,3 @@ class SessionManager:
         self,
         _session: str
     ) -> None: ...
-
-
-if __name__ == '__main__':
-    storage = SessionStorage(
-        name='start',
-        secret='test'
-    )
-
-    manager = SessionManager(
-        storage=storage
-    )
-
-    import asyncio
-
-    async def main(): 
-        _storage = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfc2Vzc2lvbiI6InRlc3QiLCJ1c2VyX2lkIjoxMjM0LCJjb29raWVfY3JlYXRlX3RpbWUiOjQ0NDQ0LCJpcCI6IjE5Mi4xNjguMC4xMDAifQ.1l7VNkgc5g0GiuOm1ejhOaQP6z3KUhmxC5cxNRbYLgg'
-        rs = await manager.get_session(_storage)
-        print(rs)
-
-    asyncio.run(main())
