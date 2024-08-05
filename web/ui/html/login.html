@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="{{ url_for('static', path='/css/login.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Вход</header>
+      <form action="/login/oauth/check" method="post">
+        <input type="text" name="username" placeholder="Введите логин" required>
+        <input type="password" name="password" placeholder="Введите пароль" required>
+        <div class="crumps">
+            <a href="#">Забыли пароль?</a>
+            {% if error %}
+                <p class="error">Неверный пароль</p>
+            {% endif %}
+        </div>
+        <input type="submit" class="button" value="Вход">
+      </form>    
+      <div class="signup">
+        <span class="signup">У Вас нет аккаунта?
+         <label for="check">Зарегистрироваться</label>
+        </span>
+      </div>
+    </div>
+    <div class="registration form">
+      <header>Регистрация</header>
+      <form action="#">
+        <input type="text" placeholder="Введите логин">
+        <input type="password" placeholder="Введите пароль">
+        <input type="password" placeholder="Повторите пароль">
+        <input type="button" class="button" value="Зарегистрироваться">
+      </form>
+      <div class="signup">
+        <span class="signup">У вас уже есть аккаунт?
+         <label for="check">Войти</label>
+        </span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
