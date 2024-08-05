@@ -1,9 +1,0 @@
-.root h1 {
-  color: green; }
-
-.root .child {
-  background-color: blue; }
-  .root .child:hover {
-    background-color: lightblue; }
-  .root .child h2 {
-    color: green; }
