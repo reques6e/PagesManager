@@ -7,10 +7,12 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
-from pages.exceptions import FastAPIExceptionHandlers
-from pages.login.router import router as page_login
+from web.pages.exceptions import FastAPIExceptionHandlers
 
-from config import Config
+from web.pages.login.router import router as page_login
+from web.pages.dashboard.router import router as page_dashboard
+
+from web.config import Config
 
 def compile_scss():
     try:
@@ -35,12 +37,13 @@ api.mount("/static", StaticFiles(directory="web/ui/static"), name="static")
 FastAPIExceptionHandlers(api)
 
 api.include_router(page_login)
+api.include_router(page_dashboard)
 
 compile_scss()
 
 if __name__ == "__main__":
     uvicorn.run(
-        app='web:api', 
+        app='run:api', 
         host=Config.RUN_HOST, 
         port=Config.RUN_PORT,
         reload=Config.RUN_RELOAD
