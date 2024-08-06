@@ -3,12 +3,12 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 
-from utils import JSONBuildResponse
-from pages.base import templates
+from web.utils import JSONBuildResponse
+from web.pages.base import templates
 
 router = APIRouter(
     prefix='/login',
-    tags=['Pickup point']
+    tags=['Login (oauth)']
 )
 
 @router.get('/')
