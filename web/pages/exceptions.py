@@ -1,6 +1,6 @@
 from fastapi import Request, FastAPI
 from fastapi.responses import JSONResponse
-from utils import JSONBuildResponse
+from web.utils import JSONBuildResponse
 
 class FastAPIExceptionHandlers:
     def __init__(self, app: FastAPI):
