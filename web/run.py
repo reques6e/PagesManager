@@ -11,6 +11,7 @@ from web.pages.exceptions import FastAPIExceptionHandlers
 
 from web.pages.login.router import router as page_login
 from web.pages.dashboard.router import router as page_dashboard
+from web.api.api import router as api_router
 
 from web.config import Config
 
@@ -37,6 +38,7 @@ api.mount("/static", StaticFiles(directory="web/ui/static"), name="static")
 FastAPIExceptionHandlers(api)
 
 api.include_router(page_login)
+api.include_router(api_router)
 api.include_router(page_dashboard)
 
 compile_scss()
