@@ -40,7 +40,7 @@ async def handle_login(request: Request):
         request.session["error"] = "Invalid credentials"
         return RedirectResponse(url="/login", status_code=303)
 
-    response = HTMLResponse(content="Login successful!")
+    response = RedirectResponse(url="/dashboard", status_code=303)
     response.set_cookie(key='x-fastapicore-session', value='test')
     
     return response
