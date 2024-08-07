@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Панель управления</title>
     <link href="{{ url_for('static', path='/css/dashboard.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -21,7 +21,7 @@
               </a>
             </li>
             <li class="sidebar-list-item active">
-              <a href="#">
+              <a href="/dashboard">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                 <span>Устройства</span>
               </a>
@@ -104,94 +104,87 @@
               </button> -->
             </div>
           </div>
-          <div class="products-area-wrapper tableView">
-            <div class="products-header">
-              <div class="product-cell image">
+          <div class="devices-area-wrapper tableView">
+            <div class="devices-header">
+              <div class="device-cell image">
                 TVIP
                 <button class="sort-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
                 </button>
               </div>
-              <div class="product-cell category">Лицевой счёт<button class="sort-button">
+              <div class="device-cell category">Лицевой счёт<button class="sort-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
                 </button></div>
-              <div class="product-cell status-cell">Статус<button class="sort-button">
+              <div class="device-cell status-cell">Статус<button class="sort-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
                 </button></div>
-              <div class="product-cell sales">ID<button class="sort-button">
+              <div class="device-cell sales">ID<button class="sort-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
                 </button></div>
-              <div class="product-cell stock">MAC<button class="sort-button">
+              <div class="device-cell stock">MAC<button class="sort-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
                 </button></div>
-              <div class="product-cell price">Онлайн<button class="sort-button">
+              <div class="device-cell price">Онлайн<button class="sort-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
                 </button></div>
             </div>
-            <div class="products">
+            <div class="devices">
               {% for device in json_data.data %}
-                  <div class="products-row">
-                      <button class="cell-more-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-                      </button>
-                      <div class="product-cell image">
-                        {% if device.deviceType.deviceType in ['s605', 's605a', 'v.605', 's500', 'S500'] %}
-                          <img src="https://tvip.tv/images/device/700%D1%85450_1.png" alt="product">
-                          <span>{{ device.deviceType.deviceType }}</span>
-                        {% elif device.deviceType.deviceType in ['s410', 'S410'] %}
-                          <img src="https://tvip.tv/images/device/700%D1%85450.png" alt="product">
-                          <span>{{ device.deviceType.deviceType }}</span>
-                        {% elif device.deviceType.deviceType in ['browser', 'WeebOS', 'UNKNOWN', 'lG', 'tvip'] %}
-                          <img src="https://thumb.tildacdn.com/tild6135-6538-4937-a439-633866326134/-/resize/42x/-/format/webp/1-11.png" alt="product">
-                          <span>{{ device.deviceType.deviceType }}</span>
-                        {% else %}
-                          <img src="https://tvip.tv/images/device/705/700x450.png" alt="product">
-                          <span>{{ device.deviceType.deviceType }}TVIP</span>
-                        {% endif %}
-                      </div>
-                      <div class="product-cell category"><span class="cell-label">Лицевой счёт:</span>{{ device.account.login }}</div>
-                      <div class="product-cell status-cell">
-                        <span class="cell-label">Статус:</span>
-                        <span class="status {% if device.wsConnected %}active{% else %}disabled{% endif %}">
-                          {{ 'Активен' if device.wsConnected else 'Отключен' }}
-                        </span>
-                      </div>
-                      <div class="product-cell sales"><span class="cell-label">ID:</span>{{ device.id }}</div>
-                      <div class="product-cell stock"><span class="cell-label">Mac:</span>{{ device.macAddress }}</div>
-                      <div class="product-cell price"><span class="cell-label">Онлайн:</span>{{ device.lastOnline | date }}</div>
-                  </div>
+                <a href="/dashboard/device/{{ device.id }}"">
+                    <div class="devices-row">
+                        <button class="cell-more-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                        </button>
+                        <div class="device-cell image">
+                          {% if device.deviceType.deviceType in ['s605', 's605a', 'v.605', 's500', 'S500'] %}
+                            <img src="https://tvip.tv/images/device/700%D1%85450_1.png" alt="device">
+                            <span>{{ device.deviceType.deviceType }}</span>
+                          {% elif device.deviceType.deviceType in ['s410', 'S410'] %}
+                            <img src="https://tvip.tv/images/device/700%D1%85450.png" alt="device">
+                            <span>{{ device.deviceType.deviceType }}</span>
+                          {% elif device.deviceType.deviceType in ['browser', 'WeebOS', 'UNKNOWN', 'lG', 'tvip'] %}
+                            <img src="https://thumb.tildacdn.com/tild6135-6538-4937-a439-633866326134/-/resize/42x/-/format/webp/1-11.png" alt="device">
+                            <span>{{ device.deviceType.deviceType }}</span>
+                          {% else %}
+                            <img src="https://tvip.tv/images/device/705/700x450.png" alt="device">
+                            <span>{{ device.deviceType.deviceType }}TVIP</span>
+                          {% endif %}
+                        </div>
+                        <div class="device-cell category"><span class="cell-label">Лицевой счёт:</span>{{ device.account.login }}</div>
+                        <div class="device-cell status-cell">
+                          <span class="cell-label">Статус:</span>
+                          <span class="status {% if device.wsConnected %}active{% else %}disabled{% endif %}">
+                            {{ 'Активен' if device.wsConnected else 'Отключен' }}
+                          </span>
+                        </div>
+                        <div class="device-cell sales"><span class="cell-label">ID:</span>{{ device.id }}</div>
+                        <div class="device-cell stock"><span class="cell-label">Mac:</span>{{ device.macAddress }}</div>
+                        <div class="device-cell price"><span class="cell-label">Онлайн:</span>{{ device.lastOnline | date }}</div>
+                    </div>
+                  </a>
               {% endfor %}
           </div>
           </div>
         </div>
       </div>
-      <script>
-        document.getElementById('search-input').addEventListener('keypress', function(event) {
-            // Проверяем, что нажата клавиша Enter (код клавиши 13)
-            if (event.key === 'Enter') {
-                event.preventDefault();  // Отменяем стандартное действие (например, отправку формы)
-                const searchValue = document.getElementById('search-input').value;
-                if (searchValue) {
-                    window.location.href = `/dashboard?find=${encodeURIComponent(searchValue)}`;
-                }
-            }
-        });
-        </script>
+      
+      <script src="{{ url_for('static', path='/js/find_device.js') }}"></script>
+      <script src="{{ url_for('static', path='/js/dashboard.js') }}"></script>
         
       <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {
           const searchBar = document.querySelector('.search-bar');
-          const products = document.querySelectorAll('.products-row');
+          const devices = document.querySelectorAll('.devices-row');
     
           searchBar.addEventListener('input', function () {
             const query = searchBar.value.toLowerCase();
     
-            products.forEach(product => {
-              const textContent = product.textContent.toLowerCase();
+            devices.forEach(device => {
+              const textContent = device.textContent.toLowerCase();
               if (textContent.includes(query)) {
-                product.style.display = '';
+                device.style.display = '';
               } else {
-                product.style.display = 'none';
+                device.style.display = 'none';
               }
             });
           });
@@ -206,17 +199,17 @@
     document.querySelector(".grid").addEventListener("click", function () {
     document.querySelector(".list").classList.remove("active");
     document.querySelector(".grid").classList.add("active");
-    document.querySelector(".products-area-wrapper").classList.add("gridView");
+    document.querySelector(".devices-area-wrapper").classList.add("gridView");
     document
-        .querySelector(".products-area-wrapper")
+        .querySelector(".devices-area-wrapper")
         .classList.remove("tableView");
     });
 
     document.querySelector(".list").addEventListener("click", function () {
     document.querySelector(".list").classList.add("active");
     document.querySelector(".grid").classList.remove("active");
-    document.querySelector(".products-area-wrapper").classList.remove("gridView");
-    document.querySelector(".products-area-wrapper").classList.add("tableView");
+    document.querySelector(".devices-area-wrapper").classList.remove("gridView");
+    document.querySelector(".devices-area-wrapper").classList.add("tableView");
     });
 
     var modeSwitch = document.querySelector('.mode-switch');
@@ -232,15 +225,15 @@
         document.querySelector(".grid").addEventListener("click", function () {
             document.querySelector(".list").classList.remove("active");
             document.querySelector(".grid").classList.add("active");
-            document.querySelector(".products-area-wrapper").classList.add("gridView");
-            document.querySelector(".products-area-wrapper").classList.remove("tableView");
+            document.querySelector(".devices-area-wrapper").classList.add("gridView");
+            document.querySelector(".devices-area-wrapper").classList.remove("tableView");
         });
 
         document.querySelector(".list").addEventListener("click", function () {
             document.querySelector(".list").classList.add("active");
             document.querySelector(".grid").classList.remove("active");
-            document.querySelector(".products-area-wrapper").classList.remove("gridView");
-            document.querySelector(".products-area-wrapper").classList.add("tableView");
+            document.querySelector(".devices-area-wrapper").classList.remove("gridView");
+            document.querySelector(".devices-area-wrapper").classList.add("tableView");
         });
 
         var modeSwitch = document.querySelector('.mode-switch');
@@ -249,32 +242,5 @@
             modeSwitch.classList.toggle('active');
         });
     </script> -->
-
-    <script>
-      document.querySelector(".jsFilter").addEventListener("click", function () {
-          document.querySelector(".filter-menu").classList.toggle("active");
-      });
-      
-      // Меняет вреппер устройств
-      //document.querySelector(".grid").addEventListener("click", function () {
-      //     document.querySelector(".list").classList.remove("active");
-      //     document.querySelector(".grid").classList.add("active");
-      //     document.querySelector(".products-area-wrapper").classList.add("gridView");
-      //     document.querySelector(".products-area-wrapper").classList.remove("tableView");
-      // }); 
-
-      document.querySelector(".list").addEventListener("click", function () {
-          document.querySelector(".list").classList.add("active");
-          document.querySelector(".grid").classList.remove("active");
-          document.querySelector(".products-area-wrapper").classList.remove("gridView");
-          document.querySelector(".products-area-wrapper").classList.add("tableView");
-      });
-
-      var modeSwitch = document.querySelector('.mode-switch');
-      modeSwitch.addEventListener('click', function () {
-          document.documentElement.classList.toggle('light');
-          modeSwitch.classList.toggle('active');
-      });
-  </script>
 </body>
 </html>
