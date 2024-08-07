@@ -24,22 +24,22 @@ class SessionManager:
     async def get_session(
         self,
         _session: str,
-    ) -> PayloadSession: 
+    ) -> PayloadSession:
         session = await self._jwt.encrypted(token=_session)
 
-        # TODO: проверка валидности 
+        # TODO: проверка валидности
 
         return PayloadSession(
             user_id=session['user_id'],
             cookie_create_time=session['cookie_create_time'],
             ip=session['ip']
         )
-    
+
     async def create_session(
         self,
         data: PayloadSession
-    ) -> GetSession: 
-        # TODO: проверка валидности 
+    ) -> GetSession:
+        # TODO: проверка валидности
 
         payload = {
             '_session': data._session,
