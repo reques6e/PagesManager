@@ -67,7 +67,7 @@
             <button class="app-content-headerButton">Добавить</button>
           </div>
           <div class="app-content-actions">
-            <input class="search-bar" placeholder="Поиск..." type="text">
+            <input class="search-bar" id="search-input" placeholder="Поиск..." type="text">
             <div class="app-content-actions-wrapper">
               <div class="filter-button-wrapper">
                 <button class="action-button filter jsFilter"><span>Фильтр</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
@@ -98,9 +98,10 @@
               <button class="action-button list active" title="List View">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
               </button>
-              <button class="action-button grid" title="Grid View">
+              <!-- Меняет вреппер устройств -->
+              <!-- <button class="action-button grid" title="Grid View">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-              </button>
+              </button> -->
             </div>
           </div>
           <div class="products-area-wrapper tableView">
@@ -127,43 +128,76 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
                 </button></div>
             </div>
-            <div class="products-row">
-              <button class="cell-more-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-              </button>
-                <div class="product-cell image">
-                  <img src="https://tvip.tv/images/device/705/700x450.png" alt="product">
-                  <span>v.706</span>
-                </div>
-              <div class="product-cell category"><span class="cell-label">Лицевой счёт:</span>5333681</div>
-              <div class="product-cell status-cell">
-                <span class="cell-label">Статус:</span>
-                <span class="status active">Активен</span>
-              </div>
-              <div class="product-cell sales"><span class="cell-label">ID:</span>9222</div>
-              <div class="product-cell stock"><span class="cell-label">Mac:</span>10:27:be:2d:e9:a4</div>
-              <div class="product-cell price"><span class="cell-label">Онлайн:</span>7 Августа 9:07</div>
-            </div>
-            <div class="products-row">
-              <button class="cell-more-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-              </button>
-                <div class="product-cell image">
-                  <img src="https://tvip.tv/images/device/700%D1%85450_1.png" alt="product">
-                  <span>v.605</span>
-                </div>
-              <div class="product-cell category"><span class="cell-label">Лицевой счёт:</span>5333681</div>
-              <div class="product-cell status-cell">
-                <span class="cell-label">Статус:</span>
-                <span class="status disabled">Отключен</span>
-              </div>
-              <div class="product-cell sales"><span class="cell-label">ID:</span>9223</div>
-              <div class="product-cell stock"><span class="cell-label">Mac:</span>10:27:be:40:46:1e</div>
-              <div class="product-cell price"><span class="cell-label">Онлайн:</span>7 Августа 9:07</div>
-            </div>
+            <div class="products">
+              {% for device in json_data.data %}
+                  <div class="products-row">
+                      <button class="cell-more-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                      </button>
+                      <div class="product-cell image">
+                        {% if device.deviceType.deviceType in ['s605', 's605a', 'v.605', 's500', 'S500'] %}
+                          <img src="https://tvip.tv/images/device/700%D1%85450_1.png" alt="product">
+                          <span>{{ device.deviceType.deviceType }}</span>
+                        {% elif device.deviceType.deviceType in ['s410', 'S410'] %}
+                          <img src="https://tvip.tv/images/device/700%D1%85450.png" alt="product">
+                          <span>{{ device.deviceType.deviceType }}</span>
+                        {% elif device.deviceType.deviceType in ['browser', 'WeebOS', 'UNKNOWN', 'lG', 'tvip'] %}
+                          <img src="https://thumb.tildacdn.com/tild6135-6538-4937-a439-633866326134/-/resize/42x/-/format/webp/1-11.png" alt="product">
+                          <span>{{ device.deviceType.deviceType }}</span>
+                        {% else %}
+                          <img src="https://tvip.tv/images/device/705/700x450.png" alt="product">
+                          <span>{{ device.deviceType.deviceType }}TVIP</span>
+                        {% endif %}
+                      </div>
+                      <div class="product-cell category"><span class="cell-label">Лицевой счёт:</span>{{ device.account.login }}</div>
+                      <div class="product-cell status-cell">
+                        <span class="cell-label">Статус:</span>
+                        <span class="status {% if device.wsConnected %}active{% else %}disabled{% endif %}">
+                          {{ 'Активен' if device.wsConnected else 'Отключен' }}
+                        </span>
+                      </div>
+                      <div class="product-cell sales"><span class="cell-label">ID:</span>{{ device.id }}</div>
+                      <div class="product-cell stock"><span class="cell-label">Mac:</span>{{ device.macAddress }}</div>
+                      <div class="product-cell price"><span class="cell-label">Онлайн:</span>{{ device.lastOnline | date }}</div>
+                  </div>
+              {% endfor %}
+          </div>
           </div>
         </div>
       </div>
+      <script>
+        document.getElementById('search-input').addEventListener('keypress', function(event) {
+            // Проверяем, что нажата клавиша Enter (код клавиши 13)
+            if (event.key === 'Enter') {
+                event.preventDefault();  // Отменяем стандартное действие (например, отправку формы)
+                const searchValue = document.getElementById('search-input').value;
+                if (searchValue) {
+                    window.location.href = `/dashboard?find=${encodeURIComponent(searchValue)}`;
+                }
+            }
+        });
+        </script>
+        
+      <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const searchBar = document.querySelector('.search-bar');
+          const products = document.querySelectorAll('.products-row');
+    
+          searchBar.addEventListener('input', function () {
+            const query = searchBar.value.toLowerCase();
+    
+            products.forEach(product => {
+              const textContent = product.textContent.toLowerCase();
+              if (textContent.includes(query)) {
+                product.style.display = '';
+              } else {
+                product.style.display = 'none';
+              }
+            });
+          });
+        });
+      </script> -->
+
 <!-- <script>
     document.querySelector(".jsFilter").addEventListener("click", function () {
     document.querySelector(".filter-menu").classList.toggle("active");
@@ -220,13 +254,14 @@
       document.querySelector(".jsFilter").addEventListener("click", function () {
           document.querySelector(".filter-menu").classList.toggle("active");
       });
-
-      document.querySelector(".grid").addEventListener("click", function () {
-          document.querySelector(".list").classList.remove("active");
-          document.querySelector(".grid").classList.add("active");
-          document.querySelector(".products-area-wrapper").classList.add("gridView");
-          document.querySelector(".products-area-wrapper").classList.remove("tableView");
-      });
+      
+      // Меняет вреппер устройств
+      //document.querySelector(".grid").addEventListener("click", function () {
+      //     document.querySelector(".list").classList.remove("active");
+      //     document.querySelector(".grid").classList.add("active");
+      //     document.querySelector(".products-area-wrapper").classList.add("gridView");
+      //     document.querySelector(".products-area-wrapper").classList.remove("tableView");
+      // }); 
 
       document.querySelector(".list").addEventListener("click", function () {
           document.querySelector(".list").classList.add("active");
