@@ -31,8 +31,10 @@ class SessionManager:
 
         return PayloadSession(
             user_id=session['user_id'],
+            is_admin=session['is_admin'],
             cookie_create_time=session['cookie_create_time'],
-            ip=session['ip']
+            ip=session['ip'],
+            token=session['token']
         )
 
     async def create_session(
@@ -44,8 +46,10 @@ class SessionManager:
         payload = {
             '_session': data._session,
             'user_id': data.user_id,
+            'is_admin': data.is_admin,
             'cookie_create_time': data.cookie_create_time,
-            'ip': data.ip
+            'ip': data.ip,
+            'token': data.token
         }
 
         session = await self._jwt.crypted(payload=payload)
@@ -53,8 +57,10 @@ class SessionManager:
         return GetSession(
             _session=session,
             user_id=data.user_id,
+            is_admin=data.is_admin,
             cookie_create_time=data.cookie_create_time,
-            ip=data.ip
+            ip=data.ip,
+            token=data.token
         )
 
     async def delete_session(
