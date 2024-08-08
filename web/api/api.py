@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from web.api.user.router import router as user_api
+from web.api.device.router import router as device_api
 from web.utils import JSONBuildResponse
 
 router = APIRouter(
@@ -15,3 +16,4 @@ async def api():
     )
 
 router.include_router(user_api)
+router.include_router(device_api)
