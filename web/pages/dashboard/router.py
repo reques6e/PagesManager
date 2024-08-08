@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 
 from web.utils import JSONBuildResponse
 from web.pages.base import templates
-from web.cores.sdk.tms import TMS
+from web.tvip import tms
 from datetime import datetime
 
 router = APIRouter(
@@ -15,10 +15,6 @@ router = APIRouter(
     tags=['Dashboard']
 )
 
-tms = TMS(
-    tms_url='http://tms.cyxym.net/api/admin',
-    token=''
-)
 
 def format_timestamp(value):
     return datetime.fromtimestamp(value / 1000).strftime('%m.%d.%Y')
