@@ -1,6 +1,7 @@
 import json
 import aiohttp
 import io
+import time
 
 from typing import Optional, Dict, AnyStr
 
@@ -26,7 +27,12 @@ class TMS:
                 else:
                     return {"error": f"Unexpected status code: {response.status}", "content": await response.text()}
 
-    async def get_all_devices(self, offset: int, limit: int, find: Optional[str] = None) -> dict:
+    async def get_all_devices(
+        self, 
+        offset: int, 
+        limit: int, 
+        find: Optional[str] = None
+    ) -> dict:
         query_find = f'filter=_quick_search_filter_;=;{find}' if find else ''
 
         return await self._request(
@@ -35,9 +41,45 @@ class TMS:
             type_='GET'
         )
 
-    async def get_device_info(self, device_id: int) -> dict:
+    async def get_device_info(
+        self, 
+        device_id: int
+    ) -> dict:
         return await self._request(
             page=f'command/?offset=0&limit=25&filter=deviceId;=;{device_id}',
             data={},
             type_='GET'
+        )
+
+    async def send_command(
+        self, 
+        device_id: int, 
+        application: str = None,
+        command: str = None, 
+        command_name: str = None
+    ) -> dict:
+        # RestartCommand - перезапуск приставки
+        ## commandName - restart
+        # navigator - браузер (StartApplicationCommand)
+        ## commandName - start_application
+
+        return await self._request(
+            page=f'command/devices/',
+            data={
+                "ids":[device_id],
+                "commands":[
+                    {
+                        "id": None,
+                        "@class": f"com.tviplabs.tms.api.admin.general.model.command.{command}",
+                        "commandName": command_name,
+                        "created": int(time.time()),
+                        "postTime": None,
+                        "ttl": None,
+                        "@id": "2",
+                        "application": application
+                    }
+                ],
+                "@id":"1"
+            },
+            type_='POST'
         )
