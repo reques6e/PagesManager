@@ -16,4 +16,13 @@ class Config:
     JWT_SECRET = 'kjasdhasdjsa'
     JWT_HASH = 'HS256'
 
+    class DataBase:
+        db_config = {
+            'host': 'localhost',
+            'port': 3306,
+            'user': 'test',
+            'password': '7255777',
+            'db': 'test'
+        }
+
     
