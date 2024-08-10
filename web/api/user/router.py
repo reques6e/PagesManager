@@ -8,3 +8,4 @@ router = APIRouter(
     tags=['Dashboard']
 )
 
+    token = await db.get_user_info_by_token(token)
