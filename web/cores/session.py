@@ -2,6 +2,7 @@ from jwts import JWT
 from config import Config
 
 from models.session import GetSession, PayloadSession
+from web.database import DataBase
 
 class SessionStorage:
     def __init__(
