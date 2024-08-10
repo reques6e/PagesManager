@@ -12,7 +12,7 @@ class TMS:
 
     async def _request(self, page: str, data: Optional[Dict] = None, type_: str = 'GET') -> dict:
         headers = {
-            'Authorization': f'Bearer {self.token}',
+            'Authorization': f'Basic {self.token}',
             'Content-Type': 'application/json'
         }
 
@@ -33,20 +33,59 @@ class TMS:
         limit: int, 
         find: Optional[str] = None
     ) -> dict:
-        query_find = f'filter=_quick_search_filter_;=;{find}' if find else ''
+        query_find = f'quick_search={find}' if find else ''
 
         return await self._request(
-            page=f'device/?offset={offset}&limit={limit}&{query_find}',
+            page=f'devices/?start={offset}&limit={limit}&{query_find}',
             data={},
             type_='GET'
         )
 
+    async def get_device(
+        self, 
+        id: int
+    ) -> dict:
+        return await self._request(
+            page=f'devices/{id}',
+            data={},
+            type_='GET'
+        )
+    
+    async def get_provider(
+        self, 
+        id: int
+    ) -> dict:
+        return await self._request(
+            page=f'providers/{id}',
+            data={},
+            type_='GET'
+        )
+
+    async def get_account(
+        self, 
+        id: int
+    ) -> dict:
+        return await self._request(
+            page=f'accounts/{id}',
+            data={},
+            type_='GET'
+        )
+
+    async def get_device_types(
+        self
+    ) -> dict:
+        return await self._request(
+            page=f'device_types?start=0&limit=250',
+            data={},
+            type_='GET'
+        )
+    
     async def get_device_info(
         self, 
         device_id: int
     ) -> dict:
         return await self._request(
-            page=f'command/?offset=0&limit=25&filter=deviceId;=;{device_id}',
+            page=f'command/?start=0&limit=25&filter=deviceId;=;{device_id}',
             data={},
             type_='GET'
         )
