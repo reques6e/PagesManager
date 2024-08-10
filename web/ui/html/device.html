@@ -63,10 +63,10 @@
           <div class="devices-area-wrapper tableView">
             <button class="app-content-headerButton" onclick="javascript:history.back(); return false;">Назад</button>
             <h1 class="app-content-headerText">
-              {% if device.device.deviceType.deviceType in ['browser', 'WeebOS', 'UNKNOWN', 'lG', 'tvip'] %}
-                Альтернатива: {{ device.device.deviceType.deviceType }}
+              {% if device.device_type in [11077, 11078, 11085, 11079, 11080] %}
+                Альтернатива: {{ device.device_type }}
               {% else %}
-                IPTV Приставка: {{ device.device.deviceType.deviceType }}
+                IPTV Приставка: {{ device.device_type }}
                 <div class="product-cell image" style="display: flex">
                   <img src="https://tvip.tv/images/device/700%D1%85450_1.png" alt="product" style="width: 30%; height: 30%;">
                 </div>
@@ -84,14 +84,14 @@
               </div>
               <span>Информация:</span>
               <div class="block_custom">
-                <span class="descriptions">Владелец: {{ device.device.account.fullname }}</span>
-                <span class="descriptions">Счёт: {{ device.device.account.id }}</span>
-                <span class="descriptions">Провадер: {{ device.device.account.provider.displayName }}</span>
-                <!-- <span class="descriptions">{{ device.device.account }}</span> -->
+                <span class="descriptions">Владелец: {{ account.fullname }}</span>
+                <span class="descriptions">Счёт: {{ account.login }}</span>
+                <span class="descriptions">Провадер: {{ provider.provider_name }}</span>
+                <!-- <span class="descriptions">device.device.account</span> -->
               </div>
               <!-- <div class="block">
                 <span class="title">Характеристики:</span>
-                <span class="descriptions_tv">Система: {{ device.device.operationSystem }}</span>
+                <span class="descriptions_tv">Система: device.device.operationSystem</span>
                 <span class="descriptions_tv">Порты:</span>
                 <span class="descriptions_tv">Порты:</span>
               </div> -->
