@@ -9,7 +9,7 @@ from web.utils import JSONBuildResponse
 from web.pages.base import templates
 from web.tvip import tms
 from datetime import datetime
-
+from web.utils import get_img_device
 router = APIRouter(
     prefix='/dashboard',
     tags=['Dashboard']
@@ -28,7 +28,15 @@ async def dashboard(request: Request):
         return RedirectResponse(url="/login", status_code=303)
 
     json_data = await tms.get_all_devices(offset=0, limit=25, find=find)
-    devices = json.loads(json_data['content'])['data']
+    device_types_data = await tms.get_device_types()
+    
+    devices = json_data['data']
+    device_types = {d['id']: d['device_type'] for d in device_types_data['data']}
+
+    for device in devices:
+        device_type_id = device['device_type']
+        device['image_url'] = await get_img_device(device_type_id)
+        device['device_name'] = device_types.get(device_type_id, "Unknown")
 
     return templates.TemplateResponse(
         "dashboard.html",
@@ -40,12 +48,17 @@ async def dashboard(request: Request, device_id: int):
     if request.cookies.get('x-fastapicore-session') is None:
         return RedirectResponse(url="/login", status_code=303)
 
-    json_data = await tms.get_device_info(device_id=device_id)
-    device = json.loads(json_data['content'])['data'][0]
-    print(device)
+    json_data = await tms.get_device(id=device_id)
+    provider = await tms.get_provider(json_data['provider'])
+    account = await tms.get_account(json_data['account'])
+
+    device_type_id = json_data['device_type']
+    json_data['image_url'] = await get_img_device(device_type_id)
+    json_data['device_name'] = json_data.get(device_type_id, "Unknown")
+    print(json_data)
     return templates.TemplateResponse(
         "device.html",
-        {"request": request, "device": device}
+        {"request": request, "device": json_data, "provider": provider, "account": account}
     )
 
 
