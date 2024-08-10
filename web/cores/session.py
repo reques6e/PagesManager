@@ -1,8 +1,12 @@
-from jwts import JWT
-from config import Config
+from web.cores.jwts import JWT
+from web.config import Config
 
-from models.session import GetSession, PayloadSession
+from web.cores.models.session import GetSession, PayloadSession
 from web.database import DataBase
+
+
+db = DataBase()
+
 
 class SessionStorage:
     def __init__(
@@ -32,6 +36,8 @@ class SessionManager:
 
         return PayloadSession(
             user_id=session['user_id'],
+            login=session['login'],
+            password=session['password'],
             is_admin=session['is_admin'],
             cookie_create_time=session['cookie_create_time'],
             ip=session['ip'],
@@ -41,12 +47,11 @@ class SessionManager:
     async def create_session(
         self,
         data: PayloadSession
-    ) -> GetSession:
-        # TODO: проверка валидности
-
+    ) -> str:
         payload = {
-            '_session': data._session,
             'user_id': data.user_id,
+            'login': data.login,
+            'password': data.password,
             'is_admin': data.is_admin,
             'cookie_create_time': data.cookie_create_time,
             'ip': data.ip,
@@ -55,14 +60,14 @@ class SessionManager:
 
         session = await self._jwt.crypted(payload=payload)
 
-        return GetSession(
-            _session=session,
+        await db.add_session(
             user_id=data.user_id,
-            is_admin=data.is_admin,
+            _session=session,
             cookie_create_time=data.cookie_create_time,
-            ip=data.ip,
-            token=data.token
+            ip=data.ip
         )
+
+        return session
 
     async def delete_session(
         self,
